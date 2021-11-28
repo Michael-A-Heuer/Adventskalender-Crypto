@@ -1,0 +1,8 @@
+artifacts
+node_modules
+.idea
+.DS_STORE
+*.pdf
+*.aux
+*.log
+*.synctex.gz

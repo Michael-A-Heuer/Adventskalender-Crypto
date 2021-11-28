@@ -1,0 +1,62 @@
+\documentclass[mycard,grid]{flashcards}
+% Note: mycard.cfg must be in the path 
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{emoji}
+
+
+\usepackage{fontspec}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\setmainfont{Helvetica}
+
+% Card style
+\cardfrontstyle{gobble}
+\cardbackstyle{gobble}
+
+\newcommand{\mycard}[1]{
+	\begin{flashcard}[]{
+			\vfill
+			\begin{center}
+				\scalebox{6}{\emoji{sparkles}\emoji{santa-claus-light-skin-tone}\emoji{christmas-tree}}\\
+				\huge
+				Ho ho ho!\\
+				\Large
+				Für dich habe ich ein Crypto-Wallet als Geschenk.\\
+				Komm, ich zeig dir wie es geht!\\
+				Folge meiner Anleitung hier:\\
+				\includegraphics[width=3cm]{./../artifacts/qrcodes/website.png}
+				 
+			\end{center}
+			\vfill\phantom{.}
+		}   % front 
+		
+		\huge
+		\vfill
+		\begin{tabular}{ccc}
+		\scalebox{2}{\emoji{mobile-phone}} & 
+		\scalebox{2}{\emoji{shushing-face}} & 
+		\scalebox{2}{\emoji{framed-picture}}\\ 
+		\includegraphics[width=3cm]{./../artifacts/qrcodes/alphawallet.png}&
+		\includegraphics[width=3cm]{./../artifacts/qrcodes/mnemonic_#1.png}&
+		\includegraphics[width=3cm]{./../artifacts/qrcodes/poap_#1.png}\\
+		%Wallet App  & Your Secret & An NFT\\
+		App  & Secret & NFT\\
+		\end{tabular}
+		\vfill\phantom{.}
+	\end{flashcard}
+}
+
+
+
+% a counter, which makes life easier...
+\newcounter{numcards}
+
+\begin{document}
+	\setcounter{numcards}{0}
+	\whiledo{\thenumcards<24}{%
+		\stepcounter{numcards}%
+		\mycard{\thenumcards}
+	}
+\end{document}
